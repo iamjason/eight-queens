@@ -14,10 +14,10 @@ class Queen {
 var solutionsFound = 0
 var positionsChecked = 0
 let printSolutions = true
-let boardWidth = 8
+let boardWidth = 11
 
 // create 8 queen objects, initialized to rows 0 - 7
-let queens:[Queen] = (0...boardWidth).map{ Queen(forRow: $0) }
+let queens:[Queen] = map(0...boardWidth){ Queen(forRow: $0) }
 
 
 func isSafe(currentRow:Int, currentColumn:Int) -> Bool {
@@ -54,7 +54,7 @@ func moveQueenAcrossRow(row:Int) {
     for column in 0...boardWidth {
     
         // Move queen column by column, checking if it's in a safe place
-        if isSafe(row, currentColumn: column) {
+        if isSafe(row, column) {
             
             // if we've found the 8th queen, that's an ANSWER!
             if row == boardWidth {
@@ -74,27 +74,27 @@ func moveQueenAcrossRow(row:Int) {
 
 func printBoard() {
     
-    print("Solution #: \(solutionsFound)\n")
+    println("Solution #: \(solutionsFound)\n")
     
     // top down
-    for currentRow in Array((0...boardWidth).reverse()) {
-        print("\(currentRow+1)", terminator: "")
+    for currentRow in reverse(0...boardWidth) {
+        print("\(currentRow+1)")
         // left to right
         for currentColumn in 0...boardWidth {
             if queens[currentRow].column == currentColumn {
-                print(" Q ", terminator: "")
+                print(" Q ")
             } else {
-                print(" - ", terminator: "")
+                print(" - ")
             }
         }
-        print("")
+        println()
     }
     
-    print("  A  B  C  D  E  F  G  H \n\n")
+    println("  A  B  C  D  E  F  G  H \n\n")
     
     
     
 }
 
 moveQueenAcrossRow(0)
-print("Solutions Found: \(solutionsFound)\nPositions checked: \(positionsChecked)")
+println("Solutions Found: \(solutionsFound)\nPositions checked: \(positionsChecked)")
