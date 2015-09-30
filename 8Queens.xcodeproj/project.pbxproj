@@ -88,6 +88,8 @@
 		4654AA621B28FECB00F7AACB /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastSwiftMigration = 0700;
+				LastSwiftUpdateCheck = 0700;
 				LastUpgradeCheck = 0630;
 				ORGANIZATIONNAME = Maven;
 				TargetAttributes = {
@@ -236,6 +238,7 @@
 				4654AA731B28FECC00F7AACB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
